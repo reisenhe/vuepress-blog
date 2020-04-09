@@ -7,6 +7,6 @@ module.exports = {
     type: 'blog',
     nav: [
       { text: 'Home', link: '/' }
-    ]
+    ],
   }
 }
