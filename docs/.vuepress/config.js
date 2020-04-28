@@ -1,7 +1,7 @@
 module.exports = {
   base: '/',
-  title: 'myBlog',
-  description: 'Just playing around',
+  title: '书房',
+  description: '内容不明',
   theme: 'reco',
   themeConfig: {
     type: 'blog',
