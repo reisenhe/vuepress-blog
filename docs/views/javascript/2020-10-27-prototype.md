@@ -84,7 +84,7 @@ sekiro.__proto__ === ACTGame.prototype;         // true
 实例的 \_\_proto__ 指向对应 class 的 prototype  
 
 ### 基于原型的执行规则
-实例获取属性或执行方法时，先查找自身属性方法，如果没有，则自动去 __proto__ 中查找
+实例获取属性或执行方法时，先查找自身属性方法，如果没有，则自动去 \_\_proto__ 中查找
 ```js
 sekiro.getPrice = () => { console.log('游戏售价279元') }
 
