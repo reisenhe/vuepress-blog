@@ -49,7 +49,7 @@ class ACTGame extends Game {
     }
 }
 
-let cbpk2077 = new RPGGame('cyberpunk2077', 'V')
+let cbpk2077 = new RPGGame('cyberpunk2077', '$59')
 let sekiro = new ACTGame('SEKIRO', 10)
 ```
 
