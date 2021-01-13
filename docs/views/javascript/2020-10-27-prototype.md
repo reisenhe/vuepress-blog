@@ -125,3 +125,52 @@ sekiro instanceof Game;         // true
 ACTGame instanceof Object;      // true
 Game instanceof Object;         // true
 ```
+
+## new 关键字
+关键字 **new** 的工作过程与其原理  
+1. 创建一个空对象
+2. 这个对象的原型指向构造函数原型的 prototye
+3. 构造函数的 this 将指向这个对象，执行构造函数
+4. 如果构造函数未返回对象，直接将新对象返回
+
+尝试用函数实现一个 new
+```js
+// fn 为构造函数
+function newCreate(fn, ...args) {
+    const newObj = {};
+    newObj.__proto__ = fn.prototype
+    let result = fn.call(newObj, ...args)
+    let isObject = typeof result === 'object' && result !== null;
+    let isFunction = typeof result === 'function'
+    if (isObject || isFunction) {
+        return result
+    }
+    return newObj
+}
+// 测试构造函数
+function ACTGame(name, hard) {
+    this.name = name;
+    this.hard = hard;
+    this.getHard = () => {
+        console.log(`这游戏叫 ${this.name}, 难度是 ${this.hard}`)
+    }
+}
+let sekiro = new ACTGame('SEKIRO', 10)
+let mario = newCreate(ACTGame, 'Mario', 12)
+console.log(sekiro)     // ACTGame {name: "SEKIRO", hard: 10, getHard: ƒ}
+console.log(mario)      // ACTGame {name: "Mario", hard: 12, getHard: ƒ}
+
+function RPGGame(name) {
+    this.name = name
+    return {
+        rpgName: this.name
+    }
+}
+let cb2077 = new RPGGame('Cyberpunk 2077')
+let zelda = newCreate(RPGGame, 'Zelda')
+console.log(cb2077)     // {rpgName: "Cyberpunk 2077"}
+console.log(zelda)      // {rpgName: "Zelda"}
+```
+:::tip
+使用 class 定义的构造函数必须用 new 执行，否则会抛出错误
+:::
