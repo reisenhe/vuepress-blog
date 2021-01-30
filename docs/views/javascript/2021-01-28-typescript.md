@@ -133,7 +133,7 @@ let sekiro = new ACTGame('SEKIRO', 10)
 ```
 ### 抽象方法 
 在抽象类中可以定义普通方法，也可以使用 abstract 可以定义抽象方法  
-抽象方法没有方法体，继承后的字类必须重新该方法
+抽象方法没有方法体，继承后的子类必须重写该方法
 ```ts
 abstract class Game {
     constructor() {}
