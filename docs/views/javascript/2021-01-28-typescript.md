@@ -109,6 +109,20 @@ let c: myObj = {
 }
 ```
 
+### 类型拓展
+使用 & 连接多个类型可以拓展类型的声明
+```ts
+type Name = { name: string }
+type Age = { age: number }
+type Person = Name & Age & { male: boolean }
+
+const hobo: Person = {
+  name: 'quin',
+  age: 17,
+  male: true
+}
+```
+
 
 ## 抽象类 abstract
 使用 abstract 关键字创建的类就是抽象类  
