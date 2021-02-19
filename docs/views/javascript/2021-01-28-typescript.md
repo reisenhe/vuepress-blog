@@ -122,7 +122,21 @@ const hobo: Person = {
   male: true
 }
 ```
-
+:::warning
+注意，如果拓展使用到的类型所定义的属性名称相同但类型不同，该属性在新类型中将被定义为 **never**
+:::
+```ts
+type Name1 = {
+  nType: string
+}
+type Name2 = {
+  nType: number
+}
+type DName = Name1 & Name2
+const B1: DName = {
+  nType: 'newName'  // 报错，nType 的类型相当于被定义为 string & number
+}
+```
 
 ## 抽象类 abstract
 使用 abstract 关键字创建的类就是抽象类  
